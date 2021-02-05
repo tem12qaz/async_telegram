@@ -72,7 +72,7 @@ async def reload_messages(request):
     return web.Response(text=text)
 
 app = web.Application()
-app.add_routes([web.get('/'+SECRET_KEY_2, reload_messages)])
+app.add_routes([web.get(WEBHOOK_PATH+'/'+SECRET_KEY_2, reload_messages)])
 
 if __name__ == '__main__':
     custom_executor = executor.set_webhook(dispatcher=dp,

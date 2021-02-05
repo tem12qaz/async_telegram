@@ -25,11 +25,11 @@ class Message:
         logging.info('All messages loaded successfully')
 
     def clear():
-        Message.all = []
+        Message.all = {}
 
-    def reload_all_messages():
-        clear()
-        load_all_messages_from_db()
+    async def reload_all_messages():
+        Message.clear()
+        await Message.load_all_messages_from_db()
 
     def get_next_or_def(self, answer):
         index_answer = self.answers.get(answer)

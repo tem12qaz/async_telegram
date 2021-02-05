@@ -39,6 +39,7 @@ class ReloadView(AdminMixin, BaseView):
     @expose('/')
     def reload_messages(self):
         response = requests.get(RELOAD_REQUEST_PATH)
+        print(RELOAD_REQUEST_PATH)
         return response.text
 
 class LogoutView(AdminMixin, BaseView):
