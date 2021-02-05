@@ -1,0 +1,44 @@
+{% extends 'admin/master.html' %}
+
+{% block head_css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+
+  <h2>Инструкция по работе с сообщениями:</h2>
+  <h4>1. Block</h4>
+  <p>Бот общается, отправляя блоки сообщений. В них может содержаться несколько сообщений разного типа (подробно о них ниже),
+  а также несколько ответов(кнопок), которые предоставляются пользователю, после отправки этого блока</p>
+  <p>Поле Messages - сюда добавляются заранее созданные сообщения</p>
+  <p>Поле Answers - сюда добавляются заранее созданные ответы</p>
+  <p>Поле From Answer - в это поле добавляется ответ, при котором отправляется этот блок. (удобнее изменять связанное поле next_message_block в Answer)</p>
+  <p>Поле Default - в это поле добавляется заранее созданный Block, который будет отправлен, если пользователь написал ответ, которого нет в Answers.
+  Обычно такой блок общий для всех остальных. Также в блок, который является Default для другого, не нужно добавлять ответы, тк они не отправляются</p>
+  <p>Поле Function_name - пока что оставлять пустым</p>
+
+  <h4>2. Message</h4>
+  <p>Отдельные сообщения. Имеют несколько типов, перечисленных в поле type. В случае, если type = text, поле content заполняется нужным текстом.
+  Во всех остальных случаях, в поле content требуется указать FileID. </p>
+
+  <h5>Некоторые FileID:</h5>
+  <p>Фото с алтая                AgACAgIAAxkBAAIBHWAW6zRSo8P2q4sEnLsyLrZl5nddAAI9szEbgcq4SHEQuDfhEm9n_45uly4AAwEAAwIAA3kAA69sBgABHgQ</p>
+  <p>Фото с чупруново            AgACAgIAAxkBAAIBH2AW64Si8Vzo7w1wooGaTDkaH1TDAAItszEbgcq4SHst4K16sIgKHvHdly4AAwEAAwIAA3kAA3I2BgABHgQ</p>
+  <p>Рандомный скриншот          AgACAgIAAxkBAAIBIWAW6_GrWuX87k0HJdNSdtkN-ylSAAI-szEbgcq4SLqRuTN9KOrWJtsQni4AAwEAAwIAA3gAA5E-AQABHgQ</p>
+  <p>Короткий видос Badcomedian  BAACAgIAAxkBAAIBI2AW7FDhOuOdy8qx-emdLXYz16VGAAIrDAACgcq4SIBcddRf1w39HgQ</p>
+  <p>Песня Ваганыча              CQACAgIAAxkBAAIBJWAW7Q4170-bkCECmEdjtGJAa4_dAAIvDAACgcq4SM7tSj2GnjZdHgQ</p>
+  <p>Архив с кодом этой проги    BQACAgIAAxkBAAIB0mAccyghQ7j3m-yerAx0G8sUOIPGAAKtCgACZ2foSPl6hvocfUixHgQ</p>
+
+  <h4>3. Answer</h4>
+  <p>Ответы, которые может написать пользователь</p>
+  <p>Поле text - Текст ответа</p>
+  <p>Поле Button - Будет соответсвующая ответу кнопка или нет.</p>
+  <p>Поле next_message_block - Блок сообщений, который будет отправлен при этом ответе.</p>
+
+  <h4>4. Reload</h4>
+  <p>После создания всех сообщений нужно нажать на "Reload Messages". В ответ придет либо информация об успешной перезагрузке, либо код ошибки.</p>
+
+
+
+{% endblock %}

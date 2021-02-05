@@ -1,0 +1,5 @@
+from ..config import DATABASE, ASYNC_DRIVER, USER, PASSWORD, \
+                        HOST, DATABASE_NAME, API_TOKEN, QUERY, \
+                         WEBHOOK_HOST, WEBHOOK_PATH, WEBAPP_PORT, SECRET_KEY_2
+
+database_uri = f'{DATABASE}+{ASYNC_DRIVER}://{USER}:{PASSWORD}@{HOST}/{DATABASE_NAME}'
